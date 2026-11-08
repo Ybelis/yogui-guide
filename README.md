@@ -6,11 +6,13 @@ Guide français / anglais pour le monde Minecraft Java **26.3** de Yann et Guigu
 
 Le site propose une recherche bilingue qui ignore les accents, des filtres par type et par datapack, des favoris enregistrés dans le navigateur, des liens partageables vers chaque fiche et un affichage adapté au téléphone. Les recettes ont une grille de fabrication et les fiches relient objets, enchantements, créatures, structures et butin.
 
+Le bouton soleil/lune permet de choisir un thème clair ou sombre, avec des couleurs distinctes par catégorie. Le choix est conservé dans le navigateur ; lors de la première visite, le site suit le thème du système. Le changement est également disponible dans les fiches. Les anciens articles « Guides pratiques » ont été retirés pour garder le catalogue centré sur le contenu des datapacks.
+
 ## Mettre le guide sur GitHub Pages
 
 Le dépôt GitHub contient directement tous les fichiers du site et son workflow de publication dans `.github/`. Les modifications envoyées sur `main` publient automatiquement le guide. Les instructions ci-dessous servent à publier votre propre copie.
 
-1. Extraire `yogui-guide.zip`. **Le contenu du ZIP va à la racine du dépôt** : `index.html`, `app.js`, `styles.css`, `search-worker.js`, `assets/`, `data/`, `.nojekyll` et `.github/`. Ne pas ajouter un dossier intermédiaire `yogui-guide/` et ne pas envoyer le ZIP lui-même sur Pages.
+1. Extraire `yogui-guide.zip`. **Le contenu du ZIP va à la racine du dépôt** : `index.html`, `app.js`, `styles.css`, `themes.css`, `search-worker.js`, `assets/`, `data/`, `.nojekyll` et `.github/`. Ne pas ajouter un dossier intermédiaire `yogui-guide/` et ne pas envoyer le ZIP lui-même sur Pages.
 2. Créer un dépôt GitHub, par exemple `yogui-guide`, et y envoyer ces fichiers sur la branche **main**. Il y a plusieurs milliers d’images : utiliser Git ou GitHub Desktop pour transférer le dossier complet. Vérifier que le dossier caché `.github/` est inclus.
 3. Dans le dépôt, ouvrir **Settings → Pages → Build and deployment → Source → GitHub Actions**.
 4. Dans **Actions**, lancer **Publier le carnet YoGui → Run workflow** si le déploiement n’a pas démarré automatiquement. Une coche verte fournit l’adresse du site, normalement `https://VOTRE-PSEUDO.github.io/yogui-guide/`.

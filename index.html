@@ -4,12 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#13201a">
+  <script>
+    (() => {
+      let saved;
+      try { saved = JSON.parse(localStorage.getItem('yogui-theme')); } catch {}
+      const theme = ['light', 'dark'].includes(saved) ? saved : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f6f4ef' : '#0e1728';
+    })();
+  </script>
   <meta name="description" content="Le guide bilingue du monde YoGui : datapacks, structures, créatures, trésors, objets, enchantements et recettes. Recherche en français et en anglais.">
   <title>YoGui · Le carnet d’aventure</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="./styles.css">
-  <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="./styles.css?v=themes-2">
+  <link rel="stylesheet" href="./themes.css?v=themes-2">
+  <script type="module" src="./app.js?v=themes-2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -36,13 +46,14 @@
         <kbd class="search-shortcut">Ctrl K</kbd>
       </div>
       <div class="language-switch" aria-label="Langue du guide"><button data-language="fr" class="active" aria-pressed="true">FR</button><button data-language="en" aria-pressed="false">EN</button></div>
+      <button class="theme-toggle" id="themeToggle" data-theme-toggle aria-label="Changer le thème"></button>
       <button class="icon-button top-bookmark" id="bookmarksButton" aria-label="Mes favoris"></button>
     </header>
     <main id="main" tabindex="-1"><div class="initial-loading"><span class="loader"></span>Ouverture du carnet…</div></main>
     <footer class="footer" id="footer"></footer>
   </div>
   <dialog class="entry-dialog" id="entryDialog" aria-labelledby="entryTitle">
-    <div class="dialog-toolbar"><span class="dialog-breadcrumb" id="dialogBreadcrumb"></span><div><button class="icon-button" id="copyEntry" aria-label="Copier le lien"></button><button class="icon-button" id="saveEntry" aria-label="Enregistrer dans les favoris"></button><button class="icon-button" id="closeEntry" aria-label="Fermer la fiche"></button></div></div>
+    <div class="dialog-toolbar"><span class="dialog-breadcrumb" id="dialogBreadcrumb"></span><div><button class="icon-button" id="themeToggleDialog" data-theme-toggle aria-label="Changer le thème"></button><button class="icon-button" id="copyEntry" aria-label="Copier le lien"></button><button class="icon-button" id="saveEntry" aria-label="Enregistrer dans les favoris"></button><button class="icon-button" id="closeEntry" aria-label="Fermer la fiche"></button></div></div>
     <article id="entryContent"></article>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
