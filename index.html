@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#13201a">
+  <meta name="description" content="Le guide bilingue du monde YoGui : datapacks, structures, créatures, trésors, objets, enchantements et recettes. Recherche en français et en anglais.">
+  <title>YoGui · Le carnet d’aventure</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/manrope.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <button class="sidebar-backdrop" id="sidebarBackdrop" aria-label="Fermer le menu" hidden></button>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#view=home" aria-label="YoGui, accueil">
+      <img src="./assets/favicon.svg" width="42" height="42" alt="">
+      <span><strong>YoGui<span class="brand-dot">.</span></strong><small data-i18n="brandSubtitle">Le carnet d’aventure</small></span>
+    </a>
+    <div class="world-label"><span class="status-dot"></span><span data-i18n="ourWorld">NOTRE MONDE</span><span class="version-pill">26.3</span></div>
+    <nav id="navigation" aria-label="Navigation principale"></nav>
+    <div class="sidebar-bottom">
+      <a class="sidebar-help" href="#view=about"><span id="helpIcon"></span><span data-i18n="aboutGuide">À propos du guide</span></a>
+      <div class="players"><span class="avatar avatar-yann">Y</span><span class="avatar avatar-guigui">G</span><div><strong>Yann &amp; Guigui</strong><small data-i18n="twoPlayers">Une aventure à deux</small></div></div>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button menu-button" id="menuButton" aria-label="Ouvrir le menu"></button>
+      <div class="search-wrap" role="search">
+        <span class="search-icon" id="searchIcon"></span>
+        <input id="search" type="search" autocomplete="off" spellcheck="false" aria-label="Rechercher dans le guide" placeholder="Une épée, un enchantement, un donjon…">
+        <button class="search-clear" id="searchClear" aria-label="Effacer la recherche" hidden>×</button>
+        <kbd class="search-shortcut">Ctrl K</kbd>
+      </div>
+      <div class="language-switch" aria-label="Langue du guide"><button data-language="fr" class="active" aria-pressed="true">FR</button><button data-language="en" aria-pressed="false">EN</button></div>
+      <button class="icon-button top-bookmark" id="bookmarksButton" aria-label="Mes favoris"></button>
+    </header>
+    <main id="main" tabindex="-1"><div class="initial-loading"><span class="loader"></span>Ouverture du carnet…</div></main>
+    <footer class="footer" id="footer"></footer>
+  </div>
+  <dialog class="entry-dialog" id="entryDialog" aria-labelledby="entryTitle">
+    <div class="dialog-toolbar"><span class="dialog-breadcrumb" id="dialogBreadcrumb"></span><div><button class="icon-button" id="copyEntry" aria-label="Copier le lien"></button><button class="icon-button" id="saveEntry" aria-label="Enregistrer dans les favoris"></button><button class="icon-button" id="closeEntry" aria-label="Fermer la fiche"></button></div></div>
+    <article id="entryContent"></article>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="padding:2rem">Ce guide utilise JavaScript pour la recherche, les filtres et les fiches bilingues.</p></noscript>
+</body>
+</html>
